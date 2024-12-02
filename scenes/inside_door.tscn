@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfqfud2sdnmri"]
+
+[ext_resource type="Texture2D" uid="uid://dcwhp1v5645eu" path="res://assets/sprites/door.png" id="1_4aukw"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_ybbav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc83c"]
+size = Vector2(42, 62)
+
+[node name="InsideDoor" type="Area2D"]
+script = ExtResource("1_ybbav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_dc83c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 6)
+texture = ExtResource("1_4aukw")

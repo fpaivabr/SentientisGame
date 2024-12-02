@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk1tufp17v6k4"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4ftyi"]
+[ext_resource type="Texture2D" uid="uid://b5jl4c5ls6xf5" path="res://ui/sentientis.png" id="1_xu5yd"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_4ftyi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 290)
+scale = Vector2(2.14684, 1.74213)
+texture = ExtResource("1_xu5yd")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 564.0
+offset_top = 485.0
+offset_right = 621.0
+offset_bottom = 516.0
+text = "Iniciar
+"
+
+[node name="InstructionsButton" type="Button" parent="."]
+offset_left = 559.0
+offset_top = 539.0
+offset_right = 626.0
+offset_bottom = 570.0
+text = "Manual
+"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="InstructionsButton" to="." method="_on_instructions_button_pressed"]

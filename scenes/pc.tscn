@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bogph55ysme43"]
+
+[ext_resource type="Texture2D" uid="uid://cqknisi0hfoh7" path="res://assets/sprites/pc.png" id="1_vfkce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vcv6"]
+size = Vector2(90, 79)
+
+[node name="PC" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_4vcv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, -7)
+scale = Vector2(0.452, 0.428)
+texture = ExtResource("1_vfkce")

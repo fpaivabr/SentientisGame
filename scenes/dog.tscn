@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3u56usbkt5uh"]
+
+[ext_resource type="Texture2D" uid="uid://x3dh47m2elm3" path="res://assets/sprites/characters/dog.png" id="1_3uxi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0msu0"]
+size = Vector2(51, 51)
+
+[node name="Dog" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_0msu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 1.5)
+scale = Vector2(0.266667, 0.288889)
+texture = ExtResource("1_3uxi2")

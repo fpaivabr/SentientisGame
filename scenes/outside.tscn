@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbs0xvd1anf6h"]
+
+[ext_resource type="Texture2D" uid="uid://bpo7isxpokaig" path="res://assets/sprites/sky.png" id="1_u8rd8"]
+[ext_resource type="Texture2D" uid="uid://cafo02g65psb" path="res://assets/sprites/floor.png" id="2_du3jo"]
+[ext_resource type="PackedScene" uid="uid://dbjhw537bfvv3" path="res://scenes/outside_door.tscn" id="3_i16hd"]
+[ext_resource type="PackedScene" uid="uid://bhuh6ewdnsba7" path="res://scenes/player.tscn" id="4_iqrru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg0i"]
+size = Vector2(1152.5, 77)
+
+[node name="Outside" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 655.0
+texture = ExtResource("1_u8rd8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(68, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(508.25, 518.5)
+shape = SubResource("RectangleShape2D_pxg0i")
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+offset_left = -66.0
+offset_top = 479.0
+offset_right = 1088.0
+offset_bottom = 557.0
+texture = ExtResource("2_du3jo")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="OutsideDoor" parent="." instance=ExtResource("3_i16hd")]
+position = Vector2(48, 512)
+scale = Vector2(2, 2)
+next_scene = "res://scenes/lab.tscn"
+
+[node name="Player" parent="." instance=ExtResource("4_iqrru")]
+position = Vector2(53, 512)
+
+[connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

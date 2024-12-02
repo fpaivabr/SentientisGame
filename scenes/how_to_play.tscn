@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5kx1u0rehdf"]
+
+[ext_resource type="Script" path="res://scripts/how_to_play.gd" id="1_64rwm"]
+[ext_resource type="Texture2D" uid="uid://c7ttha3wh8k5m" path="res://ui/background.png" id="1_mfq8s"]
+
+[node name="HowToPlay" type="Node2D"]
+script = ExtResource("1_64rwm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 325.25)
+scale = Vector2(2.13941, 1.57264)
+texture = ExtResource("1_mfq8s")
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 554.0
+offset_top = 543.0
+offset_right = 609.0
+offset_bottom = 574.0
+text = "Voltar
+"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
