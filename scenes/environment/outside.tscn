@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbs0xvd1anf6h"]
+
+[ext_resource type="Script" path="res://scripts/environment/outside.gd" id="1_ngel5"]
+[ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_uufri"]
+[ext_resource type="Texture2D" uid="uid://d0w1h2yq0rdgb" path="res://assets/sprites/environment/BRICK_4A.PNG" id="3_8uo6t"]
+[ext_resource type="Texture2D" uid="uid://d1k564xjuhic0" path="res://assets/sprites/environment/BRICK_4E.PNG" id="4_v7sc2"]
+[ext_resource type="PackedScene" uid="uid://dbjhw537bfvv3" path="res://scenes/items/outside_door.tscn" id="4_xrahf"]
+[ext_resource type="Texture2D" uid="uid://bx22vyotmov0p" path="res://assets/sprites/environment/CONCRETE_1A.PNG" id="5_c7165"]
+[ext_resource type="Texture2D" uid="uid://dyaa4dmrhqn1l" path="res://assets/sprites/environment/STEP_2A.PNG" id="5_gg0jx"]
+[ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="6_juxqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg0i"]
+size = Vector2(1152.5, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5fa7"]
+size = Vector2(17.5, 657.5)
+
+[node name="Outside" type="Node2D"]
+script = ExtResource("1_ngel5")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 1153.0
+offset_bottom = 645.0
+texture = ExtResource("2_uufri")
+expand_mode = 1
+
+[node name="Background2" type="TextureRect" parent="."]
+offset_left = -14.0
+offset_top = 214.0
+offset_right = 266.0
+offset_bottom = 596.0
+size_flags_vertical = 4
+texture = ExtResource("3_8uo6t")
+stretch_mode = 1
+
+[node name="Background3" type="TextureRect" parent="."]
+offset_left = 193.0
+offset_top = 530.0
+offset_right = 266.0
+offset_bottom = 594.0
+size_flags_vertical = 4
+texture = ExtResource("4_v7sc2")
+stretch_mode = 1
+
+[node name="Background4" type="TextureRect" parent="."]
+offset_left = 265.0
+offset_top = 556.0
+offset_right = 1744.0
+offset_bottom = 596.0
+size_flags_vertical = 4
+texture = ExtResource("5_gg0jx")
+stretch_mode = 1
+
+[node name="Background5" type="TextureRect" parent="."]
+offset_left = -14.0
+offset_top = 212.0
+offset_right = 273.0
+offset_bottom = 247.0
+size_flags_vertical = 4
+texture = ExtResource("6_juxqs")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(68, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(508.25, 528)
+shape = SubResource("RectangleShape2D_pxg0i")
+
+[node name="TextureRect" type="TextureRect" parent="Floor"]
+offset_left = -77.0
+offset_top = 498.0
+offset_right = 1678.0
+offset_bottom = 557.0
+texture = ExtResource("5_c7165")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="OutsideDoor" parent="." instance=ExtResource("4_xrahf")]
+position = Vector2(66, 486)
+scale = Vector2(2, 2)
+next_scene = "res://scenes/environment/lab.tscn"
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+position = Vector2(-19, 308)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
+position = Vector2(7.25, 23.25)
+shape = SubResource("RectangleShape2D_o5fa7")
+
+[connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Sentientis"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://ui/icon.png"
+config/icon="res://assets/sprites/ui/icon.png"
 
 [autoload]
 
-GameState="*res://scripts/game_state.gd"
+GameState="*res://game_state.gd"
 
 [input]
 

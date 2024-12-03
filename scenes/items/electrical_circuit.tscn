@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://g7f8sijcm6s5"]
+
+[ext_resource type="Texture2D" uid="uid://b7exmchcfoaex" path="res://assets/sprites/items/electrical_circuit.png" id="1_m60bt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvmlg"]
+size = Vector2(60, 59)
+
+[node name="ElectricalCircuit" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1.90735e-06)
+scale = Vector2(0.0508333, 0.0491667)
+texture = ExtResource("1_m60bt")
+
+[node name="CharacterBody2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_pvmlg")

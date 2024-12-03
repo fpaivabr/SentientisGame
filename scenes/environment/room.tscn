@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg0imm6suvm5a"]
+
+[ext_resource type="Script" path="res://scripts/environment/room.gd" id="1_p1jlh"]
+[ext_resource type="Texture2D" uid="uid://cxue7w7g0op1g" path="res://assets/sprites/environment/TILE_4C.PNG" id="2_ul7wv"]
+[ext_resource type="Texture2D" uid="uid://cr3em70gd0tt4" path="res://assets/sprites/environment/CONCRETE_3C.PNG" id="3_7mlv3"]
+[ext_resource type="PackedScene" uid="uid://bfqfud2sdnmri" path="res://scenes/items/inside_door.tscn" id="4_lohte"]
+[ext_resource type="PackedScene" uid="uid://c82et45bsb5ta" path="res://scenes/items/box.tscn" id="5_h48le"]
+[ext_resource type="Texture2D" uid="uid://4x5fgrrlw8ya" path="res://assets/sprites/environment/FLOOR_1A.PNG" id="6_7d6np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37xml"]
+size = Vector2(15.75, 699.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1n6"]
+size = Vector2(1152.5, 69)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_p1jlh")
+
+[node name="Background2" type="TextureRect" parent="."]
+offset_left = 815.0
+offset_top = -3.0
+offset_right = 1161.0
+offset_bottom = 584.0
+size_flags_vertical = 4
+texture = ExtResource("2_ul7wv")
+stretch_mode = 1
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 809.0
+offset_bottom = 651.0
+size_flags_vertical = 4
+texture = ExtResource("3_7mlv3")
+stretch_mode = 1
+
+[node name="InsideDoor" parent="." instance=ExtResource("4_lohte")]
+position = Vector2(226, 497)
+scale = Vector2(2, 2)
+next_scene = "res://scenes/environment/lab.tscn"
+
+[node name="Box" parent="." instance=ExtResource("5_h48le")]
+position = Vector2(63, 539)
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+position = Vector2(1154, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
+position = Vector2(7.125, -12.875)
+shape = SubResource("RectangleShape2D_37xml")
+
+[node name="InvisibleWall2" type="StaticBody2D" parent="."]
+position = Vector2(1154, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
+position = Vector2(-1163.25, 10.75)
+shape = SubResource("RectangleShape2D_37xml")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(68, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(508.25, 522.5)
+shape = SubResource("RectangleShape2D_sk1n6")
+
+[node name="TextureRect" type="TextureRect" parent="Floor"]
+offset_left = -66.0
+offset_top = 490.0
+offset_right = 1088.0
+offset_bottom = 557.0
+texture = ExtResource("6_7d6np")
+expand_mode = 3
+stretch_mode = 1
+
+[connection signal="body_entered" from="InsideDoor" to="InsideDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="InsideDoor" to="InsideDoor" method="_on_body_exited"]
