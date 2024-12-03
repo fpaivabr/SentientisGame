@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1guotgryp6qj"]
+[gd_scene load_steps=15 format=3 uid="uid://d1guotgryp6qj"]
 
 [ext_resource type="Script" path="res://scripts/environment/lab.gd" id="1_b53v8"]
 [ext_resource type="Texture2D" uid="uid://cr3em70gd0tt4" path="res://assets/sprites/environment/CONCRETE_3C.PNG" id="2_2ie4p"]
+[ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="3_n87ks"]
 [ext_resource type="Texture2D" uid="uid://4x5fgrrlw8ya" path="res://assets/sprites/environment/FLOOR_1A.PNG" id="3_wgqe0"]
 [ext_resource type="PackedScene" uid="uid://dbjhw537bfvv3" path="res://scenes/items/outside_door.tscn" id="4_5pltl"]
 [ext_resource type="PackedScene" uid="uid://bfqfud2sdnmri" path="res://scenes/items/inside_door.tscn" id="5_oqucr"]
@@ -9,12 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://bogph55ysme43" path="res://scenes/items/pc.tscn" id="7_x03gx"]
 [ext_resource type="PackedScene" uid="uid://casnov6f6b507" path="res://scenes/characters/robot.tscn" id="8_ef8gw"]
 [ext_resource type="PackedScene" uid="uid://3u56usbkt5uh" path="res://scenes/characters/dog.tscn" id="9_vkq50"]
+[ext_resource type="Texture2D" uid="uid://bgtyu4k3decbu" path="res://assets/sprites/items/machine3.png" id="11_pdbqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fi7g"]
 size = Vector2(22.25, 682.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg0i"]
 size = Vector2(1152.5, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kieop"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_b53v8")
@@ -25,6 +29,15 @@ offset_right = 1177.0
 offset_bottom = 656.0
 size_flags_vertical = 4
 texture = ExtResource("2_2ie4p")
+stretch_mode = 1
+
+[node name="Background5" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 1186.0
+offset_bottom = 35.0
+size_flags_vertical = 4
+texture = ExtResource("3_n87ks")
+expand_mode = 1
 stretch_mode = 1
 
 [node name="InvisibleWall2" type="StaticBody2D" parent="."]
@@ -58,27 +71,37 @@ expand_mode = 3
 stretch_mode = 1
 
 [node name="OutsideDoor" parent="." instance=ExtResource("4_5pltl")]
-position = Vector2(1012, 478)
+position = Vector2(1014, 478)
 scale = Vector2(2, 2)
 next_scene = "res://scenes/environment/outside.tscn"
 
 [node name="InsideDoor" parent="." instance=ExtResource("5_oqucr")]
-position = Vector2(255, 504)
+position = Vector2(255, 502)
 scale = Vector2(2, 2)
 next_scene = "res://scenes/environment/room.tscn"
 
 [node name="ElectricalCircuit" parent="." instance=ExtResource("6_u7c1k")]
-position = Vector2(866, 459)
+position = Vector2(603, 432)
 scale = Vector2(2, 2)
 
 [node name="PC" parent="." instance=ExtResource("7_x03gx")]
-position = Vector2(554, 546)
+position = Vector2(397, 516)
 
 [node name="Robot" parent="." instance=ExtResource("8_ef8gw")]
 position = Vector2(89, 509)
 
 [node name="Dog" parent="." instance=ExtResource("9_vkq50")]
-position = Vector2(889, 554)
+position = Vector2(743, 552)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(830, 486)
+scale = Vector2(1.19167, 1.21951)
+texture = ExtResource("11_pdbqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kieop")
 
 [connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

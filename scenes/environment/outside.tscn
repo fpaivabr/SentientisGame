@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbs0xvd1anf6h"]
+[gd_scene load_steps=12 format=3 uid="uid://dbs0xvd1anf6h"]
 
 [ext_resource type="Script" path="res://scripts/environment/outside.gd" id="1_ngel5"]
 [ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_uufri"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx22vyotmov0p" path="res://assets/sprites/environment/CONCRETE_1A.PNG" id="5_c7165"]
 [ext_resource type="Texture2D" uid="uid://dyaa4dmrhqn1l" path="res://assets/sprites/environment/STEP_2A.PNG" id="5_gg0jx"]
 [ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="6_juxqs"]
+[ext_resource type="Texture2D" uid="uid://bdqi3pqev4dh4" path="res://assets/sprites/environment/FENCE_1A.PNG" id="9_ake4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg0i"]
 size = Vector2(1152.5, 58)
@@ -90,6 +91,14 @@ position = Vector2(-19, 308)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
 position = Vector2(7.25, 23.25)
 shape = SubResource("RectangleShape2D_o5fa7")
+
+[node name="Background6" type="TextureRect" parent="."]
+offset_left = 266.0
+offset_top = 371.0
+offset_right = 1743.0
+offset_bottom = 556.0
+texture = ExtResource("9_ake4a")
+stretch_mode = 1
 
 [connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg0imm6suvm5a"]
+[gd_scene load_steps=23 format=3 uid="uid://bg0imm6suvm5a"]
 
 [ext_resource type="Script" path="res://scripts/environment/room.gd" id="1_p1jlh"]
+[ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_q801p"]
 [ext_resource type="Texture2D" uid="uid://cxue7w7g0op1g" path="res://assets/sprites/environment/TILE_4C.PNG" id="2_ul7wv"]
 [ext_resource type="Texture2D" uid="uid://cr3em70gd0tt4" path="res://assets/sprites/environment/CONCRETE_3C.PNG" id="3_7mlv3"]
 [ext_resource type="PackedScene" uid="uid://bfqfud2sdnmri" path="res://scenes/items/inside_door.tscn" id="4_lohte"]
-[ext_resource type="PackedScene" uid="uid://c82et45bsb5ta" path="res://scenes/items/box.tscn" id="5_h48le"]
+[ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="5_xjk07"]
 [ext_resource type="Texture2D" uid="uid://4x5fgrrlw8ya" path="res://assets/sprites/environment/FLOOR_1A.PNG" id="6_7d6np"]
+[ext_resource type="Texture2D" uid="uid://d0w1h2yq0rdgb" path="res://assets/sprites/environment/BRICK_4A.PNG" id="9_d72hg"]
+[ext_resource type="Texture2D" uid="uid://b6x5au707e51y" path="res://assets/sprites/items/CRATE_1G.PNG" id="10_36fk5"]
+[ext_resource type="Texture2D" uid="uid://dgy3ioheanm26" path="res://assets/sprites/items/toilet.png" id="10_ejbwg"]
+[ext_resource type="Texture2D" uid="uid://b2gxrn2xw46f1" path="res://assets/sprites/items/sink.png" id="11_m4of8"]
+[ext_resource type="Texture2D" uid="uid://buguiwkypybs0" path="res://assets/sprites/items/sofa.png" id="12_8ekq3"]
+[ext_resource type="Texture2D" uid="uid://dgtlh2ynjmyg8" path="res://assets/sprites/items/furniture1.png" id="13_o6xae"]
+[ext_resource type="Texture2D" uid="uid://bgtyu4k3decbu" path="res://assets/sprites/items/machine3.png" id="14_7y0x0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37xml"]
 size = Vector2(15.75, 699.75)
@@ -13,12 +21,38 @@ size = Vector2(15.75, 699.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1n6"]
 size = Vector2(1152.5, 69)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7a4j"]
+size = Vector2(41, 81.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfeyk"]
+size = Vector2(118, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj7yc"]
+size = Vector2(57, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl6qi"]
+size = Vector2(143, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u22r6"]
+size = Vector2(92, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ceb"]
+size = Vector2(120, 135)
+
 [node name="Room" type="Node2D"]
 script = ExtResource("1_p1jlh")
 
+[node name="Background3" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -242.0
+offset_right = 1161.0
+offset_bottom = 411.0
+texture = ExtResource("2_q801p")
+expand_mode = 1
+
 [node name="Background2" type="TextureRect" parent="."]
-offset_left = 815.0
-offset_top = -3.0
+offset_left = 883.0
+offset_top = 261.0
 offset_right = 1161.0
 offset_bottom = 584.0
 size_flags_vertical = 4
@@ -27,20 +61,46 @@ stretch_mode = 1
 
 [node name="Background" type="TextureRect" parent="."]
 offset_left = -5.0
-offset_top = -5.0
-offset_right = 809.0
+offset_top = 260.0
+offset_right = 885.0
 offset_bottom = 651.0
 size_flags_vertical = 4
 texture = ExtResource("3_7mlv3")
 stretch_mode = 1
 
+[node name="Background5" type="TextureRect" parent="."]
+offset_left = -18.0
+offset_top = 225.0
+offset_right = 1168.0
+offset_bottom = 260.0
+size_flags_vertical = 4
+texture = ExtResource("5_xjk07")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Background4" type="TextureRect" parent="."]
+offset_left = -12.0
+offset_top = 32.0
+offset_right = 559.0
+offset_bottom = 223.0
+size_flags_vertical = 4
+texture = ExtResource("9_d72hg")
+stretch_mode = 1
+
+[node name="Background7" type="TextureRect" parent="."]
+offset_left = -9.0
+offset_top = 33.0
+offset_right = 571.0
+offset_bottom = 68.0
+size_flags_vertical = 4
+texture = ExtResource("5_xjk07")
+expand_mode = 1
+stretch_mode = 1
+
 [node name="InsideDoor" parent="." instance=ExtResource("4_lohte")]
-position = Vector2(226, 497)
+position = Vector2(228, 504)
 scale = Vector2(2, 2)
 next_scene = "res://scenes/environment/lab.tscn"
-
-[node name="Box" parent="." instance=ExtResource("5_h48le")]
-position = Vector2(63, 539)
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 position = Vector2(1154, 321)
@@ -71,6 +131,70 @@ offset_bottom = 557.0
 texture = ExtResource("6_7d6np")
 expand_mode = 3
 stretch_mode = 1
+
+[node name="Toilet" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Toilet"]
+position = Vector2(1029, 543)
+scale = Vector2(0.452898, 0.436538)
+texture = ExtResource("10_ejbwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
+position = Vector2(1029, 541)
+shape = SubResource("RectangleShape2D_c7a4j")
+
+[node name="Box" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+position = Vector2(75, 542)
+scale = Vector2(1.78125, 1.3125)
+texture = ExtResource("10_36fk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+position = Vector2(75, 540)
+shape = SubResource("RectangleShape2D_pfeyk")
+
+[node name="Sink" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sink"]
+position = Vector2(943, 549)
+scale = Vector2(0.463889, 0.440608)
+texture = ExtResource("11_m4of8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink"]
+position = Vector2(944.5, 549.5)
+shape = SubResource("RectangleShape2D_gj7yc")
+
+[node name="Sofa" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sofa"]
+position = Vector2(646, 555)
+scale = Vector2(0.761307, 0.788)
+texture = ExtResource("12_8ekq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sofa"]
+position = Vector2(648, 545)
+shape = SubResource("RectangleShape2D_xl6qi")
+
+[node name="Furniture" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Furniture"]
+position = Vector2(783, 547)
+texture = ExtResource("13_o6xae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture"]
+position = Vector2(783, 534)
+shape = SubResource("RectangleShape2D_u22r6")
+
+[node name="Machine" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Machine"]
+position = Vector2(392, 436)
+texture = ExtResource("14_7y0x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+position = Vector2(400, 449.5)
+shape = SubResource("RectangleShape2D_h2ceb")
 
 [connection signal="body_entered" from="InsideDoor" to="InsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="InsideDoor" to="InsideDoor" method="_on_body_exited"]

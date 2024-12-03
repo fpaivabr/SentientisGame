@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crr3j57b7ws0s"
-path="res://.godot/imported/pc.png-4666bd35309cdbd0892c80e566d97735.ctex"
+uid="uid://gdc4hq4b2axg"
+path="res://.godot/imported/SWITCH_1B.PNG-1c2db2970848e29e86280d8be40cab13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/pc.png"
-dest_files=["res://.godot/imported/pc.png-4666bd35309cdbd0892c80e566d97735.ctex"]
+source_file="res://assets/sprites/items/SWITCH_1B.PNG"
+dest_files=["res://.godot/imported/SWITCH_1B.PNG-1c2db2970848e29e86280d8be40cab13.ctex"]
 
 [params]
 

@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://g7f8sijcm6s5"]
 
-[ext_resource type="Texture2D" uid="uid://b7exmchcfoaex" path="res://assets/sprites/items/electrical_circuit.png" id="1_m60bt"]
+[ext_resource type="Texture2D" uid="uid://badiix02aolb4" path="res://assets/sprites/items/electrical.png" id="1_f3675"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvmlg"]
-size = Vector2(60, 59)
+size = Vector2(150, 137)
 
 [node name="ElectricalCircuit" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1.90735e-06)
-scale = Vector2(0.0508333, 0.0491667)
-texture = ExtResource("1_m60bt")
+scale = Vector2(0.8, 0.768)
+texture = ExtResource("1_f3675")
 
 [node name="CharacterBody2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 0.5)
+position = Vector2(-0.5, 5)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_pvmlg")
