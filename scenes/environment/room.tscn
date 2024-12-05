@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bg0imm6suvm5a"]
+[gd_scene load_steps=26 format=3 uid="uid://bg0imm6suvm5a"]
 
 [ext_resource type="Script" path="res://scripts/environment/room.gd" id="1_p1jlh"]
 [ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_q801p"]
@@ -8,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="5_xjk07"]
 [ext_resource type="Texture2D" uid="uid://4x5fgrrlw8ya" path="res://assets/sprites/environment/FLOOR_1A.PNG" id="6_7d6np"]
 [ext_resource type="Texture2D" uid="uid://d0w1h2yq0rdgb" path="res://assets/sprites/environment/BRICK_4A.PNG" id="9_d72hg"]
+[ext_resource type="Script" path="res://scripts/items/toilet.gd" id="9_dwyyp"]
 [ext_resource type="Texture2D" uid="uid://b6x5au707e51y" path="res://assets/sprites/items/CRATE_1G.PNG" id="10_36fk5"]
 [ext_resource type="Texture2D" uid="uid://dgy3ioheanm26" path="res://assets/sprites/items/toilet.png" id="10_ejbwg"]
 [ext_resource type="Texture2D" uid="uid://b2gxrn2xw46f1" path="res://assets/sprites/items/sink.png" id="11_m4of8"]
 [ext_resource type="Texture2D" uid="uid://buguiwkypybs0" path="res://assets/sprites/items/sofa.png" id="12_8ekq3"]
+[ext_resource type="Script" path="res://scripts/items/sink.gd" id="12_i4rpd"]
+[ext_resource type="Script" path="res://scripts/items/sofa.gd" id="12_womue"]
 [ext_resource type="Texture2D" uid="uid://dgtlh2ynjmyg8" path="res://assets/sprites/items/furniture1.png" id="13_o6xae"]
 [ext_resource type="Texture2D" uid="uid://bgtyu4k3decbu" path="res://assets/sprites/items/machine3.png" id="14_7y0x0"]
 
@@ -133,6 +136,7 @@ expand_mode = 3
 stretch_mode = 1
 
 [node name="Toilet" type="Area2D" parent="."]
+script = ExtResource("9_dwyyp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Toilet"]
 position = Vector2(1029, 543)
@@ -155,6 +159,7 @@ position = Vector2(75, 540)
 shape = SubResource("RectangleShape2D_pfeyk")
 
 [node name="Sink" type="Area2D" parent="."]
+script = ExtResource("12_i4rpd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sink"]
 position = Vector2(943, 549)
@@ -166,6 +171,7 @@ position = Vector2(944.5, 549.5)
 shape = SubResource("RectangleShape2D_gj7yc")
 
 [node name="Sofa" type="Area2D" parent="."]
+script = ExtResource("12_womue")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sofa"]
 position = Vector2(646, 555)

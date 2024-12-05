@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3pbfttm8kova"
-path="res://.godot/imported/SWITCH_1A.PNG-b1b6e6f3d1e0ba588d03a94c19d71696.ctex"
+uid="uid://c351jiypvh6n4"
+path="res://.godot/imported/__scientist_light_skin_no_glasses_block_000.png-a4f33938ff8ad6202195ca7eaa59d2d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/SWITCH_1A.PNG"
-dest_files=["res://.godot/imported/SWITCH_1A.PNG-b1b6e6f3d1e0ba588d03a94c19d71696.ctex"]
+source_file="res://assets/sprites/characters/__scientist_light_skin_no_glasses_block_000.png"
+dest_files=["res://.godot/imported/__scientist_light_skin_no_glasses_block_000.png-a4f33938ff8ad6202195ca7eaa59d2d0.ctex"]
 
 [params]
 

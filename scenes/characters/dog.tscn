@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://3u56usbkt5uh"]
+[gd_scene load_steps=5 format=3 uid="uid://3u56usbkt5uh"]
 
-[ext_resource type="Texture2D" uid="uid://x3dh47m2elm3" path="res://assets/sprites/characters/dog.png" id="1_3uxi2"]
+[ext_resource type="Script" path="res://scripts/characters/dog.gd" id="1_6n8kb"]
+[ext_resource type="Texture2D" uid="uid://oloys3dm1jx7" path="res://assets/sprites/characters/__alsation_bark.PNG" id="2_tnqa6"]
+[ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="3_5scka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0msu0"]
-size = Vector2(51, 51)
+size = Vector2(71, 58)
 
 [node name="Dog" type="Area2D"]
+script = ExtResource("1_6n8kb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.5)
+position = Vector2(-0.5, 3)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_0msu0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.76837e-07, 1.5)
-scale = Vector2(0.266667, 0.288889)
-texture = ExtResource("1_3uxi2")
+scale = Vector2(0.2, 0.216)
+texture = ExtResource("2_tnqa6")
+
+[node name="DialogBox" parent="." instance=ExtResource("3_5scka")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

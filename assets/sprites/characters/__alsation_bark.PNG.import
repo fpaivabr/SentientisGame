@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gdc4hq4b2axg"
-path="res://.godot/imported/SWITCH_1B.PNG-1c2db2970848e29e86280d8be40cab13.ctex"
+uid="uid://oloys3dm1jx7"
+path="res://.godot/imported/__alsation_bark.PNG-39ec435026f546e5f8296bc14adc8ee4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/SWITCH_1B.PNG"
-dest_files=["res://.godot/imported/SWITCH_1B.PNG-1c2db2970848e29e86280d8be40cab13.ctex"]
+source_file="res://assets/sprites/characters/__alsation_bark.PNG"
+dest_files=["res://.godot/imported/__alsation_bark.PNG-39ec435026f546e5f8296bc14adc8ee4.ctex"]
 
 [params]
 

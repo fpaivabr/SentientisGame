@@ -7,6 +7,18 @@ extends Area2D
 # Variável para saber se o player está na área da porta
 var player_in_area = false
 
+func _ready():
+	# Ajusta a posição inicial do player dependendo da próxima cena e da porta
+	if next_scene == "res://scenes/environment/lab.tscn":
+		if name == "InsideDoor":
+			spawn_position = Vector2(255, 502)
+		elif name == "OutsideDoor":
+			spawn_position = Vector2(1014, 478)
+	elif next_scene == "res://scenes/environment/room.tscn":
+		spawn_position = Vector2(228, 504)
+	elif next_scene == "res://scenes/environment/outside.tscn":
+		spawn_position = Vector2(66, 486)
+
 # Detecta quando o player entra na área da porta
 func _on_body_entered(body):
 	if body.name == "Player":  # Verifica se o objeto que entrou é o player

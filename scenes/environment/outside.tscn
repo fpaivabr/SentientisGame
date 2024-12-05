@@ -48,7 +48,7 @@ stretch_mode = 1
 [node name="Background4" type="TextureRect" parent="."]
 offset_left = 265.0
 offset_top = 556.0
-offset_right = 1744.0
+offset_right = 1240.0
 offset_bottom = 596.0
 size_flags_vertical = 4
 texture = ExtResource("5_gg0jx")
@@ -74,7 +74,7 @@ shape = SubResource("RectangleShape2D_pxg0i")
 [node name="TextureRect" type="TextureRect" parent="Floor"]
 offset_left = -77.0
 offset_top = 498.0
-offset_right = 1678.0
+offset_right = 1174.0
 offset_bottom = 557.0
 texture = ExtResource("5_c7165")
 expand_mode = 3
@@ -89,16 +89,20 @@ next_scene = "res://scenes/environment/lab.tscn"
 position = Vector2(-19, 308)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
-position = Vector2(7.25, 23.25)
+position = Vector2(12, 11)
 shape = SubResource("RectangleShape2D_o5fa7")
 
 [node name="Background6" type="TextureRect" parent="."]
 offset_left = 266.0
 offset_top = 371.0
-offset_right = 1743.0
+offset_right = 1244.0
 offset_bottom = 556.0
 texture = ExtResource("9_ake4a")
 stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1237, 325)
+shape = SubResource("RectangleShape2D_o5fa7")
 
 [connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

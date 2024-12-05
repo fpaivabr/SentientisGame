@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://g7f8sijcm6s5"]
+[gd_scene load_steps=5 format=3 uid="uid://g7f8sijcm6s5"]
 
 [ext_resource type="Texture2D" uid="uid://badiix02aolb4" path="res://assets/sprites/items/electrical.png" id="1_f3675"]
+[ext_resource type="Script" path="res://scripts/items/electrical_circuit.gd" id="1_q3f4n"]
+[ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="3_mxien"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvmlg"]
 size = Vector2(150, 137)
 
 [node name="ElectricalCircuit" type="Area2D"]
+script = ExtResource("1_q3f4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1.90735e-06)
@@ -16,3 +19,8 @@ texture = ExtResource("1_f3675")
 position = Vector2(-0.5, 5)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_pvmlg")
+
+[node name="DialogBox" parent="." instance=ExtResource("3_mxien")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
