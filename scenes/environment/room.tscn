@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bg0imm6suvm5a"]
+[gd_scene load_steps=19 format=3 uid="uid://bg0imm6suvm5a"]
 
 [ext_resource type="Script" path="res://scripts/environment/room.gd" id="1_p1jlh"]
 [ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_q801p"]
@@ -8,33 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="5_xjk07"]
 [ext_resource type="Texture2D" uid="uid://4x5fgrrlw8ya" path="res://assets/sprites/environment/FLOOR_1A.PNG" id="6_7d6np"]
 [ext_resource type="Texture2D" uid="uid://d0w1h2yq0rdgb" path="res://assets/sprites/environment/BRICK_4A.PNG" id="9_d72hg"]
-[ext_resource type="Script" path="res://scripts/items/toilet.gd" id="9_dwyyp"]
-[ext_resource type="Texture2D" uid="uid://b6x5au707e51y" path="res://assets/sprites/items/CRATE_1G.PNG" id="10_36fk5"]
-[ext_resource type="Texture2D" uid="uid://dgy3ioheanm26" path="res://assets/sprites/items/toilet.png" id="10_ejbwg"]
-[ext_resource type="Texture2D" uid="uid://b2gxrn2xw46f1" path="res://assets/sprites/items/sink.png" id="11_m4of8"]
-[ext_resource type="Texture2D" uid="uid://buguiwkypybs0" path="res://assets/sprites/items/sofa.png" id="12_8ekq3"]
-[ext_resource type="Script" path="res://scripts/items/sink.gd" id="12_i4rpd"]
-[ext_resource type="Script" path="res://scripts/items/sofa.gd" id="12_womue"]
+[ext_resource type="PackedScene" uid="uid://b52luvbsqr3h1" path="res://scenes/items/box.tscn" id="11_muqx7"]
+[ext_resource type="PackedScene" uid="uid://diah06vishhct" path="res://scenes/items/sofa.tscn" id="12_teohw"]
 [ext_resource type="Texture2D" uid="uid://dgtlh2ynjmyg8" path="res://assets/sprites/items/furniture1.png" id="13_o6xae"]
+[ext_resource type="PackedScene" uid="uid://dh58umx0hb7gk" path="res://scenes/items/sink.tscn" id="13_wjwwf"]
 [ext_resource type="Texture2D" uid="uid://bgtyu4k3decbu" path="res://assets/sprites/items/machine3.png" id="14_7y0x0"]
+[ext_resource type="PackedScene" uid="uid://c6j088qttfaqn" path="res://scenes/items/toilet.tscn" id="14_sbqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37xml"]
 size = Vector2(15.75, 699.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1n6"]
 size = Vector2(1152.5, 69)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7a4j"]
-size = Vector2(41, 81.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfeyk"]
-size = Vector2(118, 82)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj7yc"]
-size = Vector2(57, 71)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl6qi"]
-size = Vector2(143, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u22r6"]
 size = Vector2(92, 102)
@@ -135,53 +120,6 @@ texture = ExtResource("6_7d6np")
 expand_mode = 3
 stretch_mode = 1
 
-[node name="Toilet" type="Area2D" parent="."]
-script = ExtResource("9_dwyyp")
-
-[node name="Sprite2D" type="Sprite2D" parent="Toilet"]
-position = Vector2(1029, 543)
-scale = Vector2(0.452898, 0.436538)
-texture = ExtResource("10_ejbwg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
-position = Vector2(1029, 541)
-shape = SubResource("RectangleShape2D_c7a4j")
-
-[node name="Box" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Box"]
-position = Vector2(75, 542)
-scale = Vector2(1.78125, 1.3125)
-texture = ExtResource("10_36fk5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
-position = Vector2(75, 540)
-shape = SubResource("RectangleShape2D_pfeyk")
-
-[node name="Sink" type="Area2D" parent="."]
-script = ExtResource("12_i4rpd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sink"]
-position = Vector2(943, 549)
-scale = Vector2(0.463889, 0.440608)
-texture = ExtResource("11_m4of8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink"]
-position = Vector2(944.5, 549.5)
-shape = SubResource("RectangleShape2D_gj7yc")
-
-[node name="Sofa" type="Area2D" parent="."]
-script = ExtResource("12_womue")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sofa"]
-position = Vector2(646, 555)
-scale = Vector2(0.761307, 0.788)
-texture = ExtResource("12_8ekq3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sofa"]
-position = Vector2(648, 545)
-shape = SubResource("RectangleShape2D_xl6qi")
-
 [node name="Furniture" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Furniture"]
@@ -201,6 +139,18 @@ texture = ExtResource("14_7y0x0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 position = Vector2(400, 449.5)
 shape = SubResource("RectangleShape2D_h2ceb")
+
+[node name="Box" parent="." instance=ExtResource("11_muqx7")]
+position = Vector2(77, 537)
+
+[node name="Sofa" parent="." instance=ExtResource("12_teohw")]
+position = Vector2(614, 547)
+
+[node name="Sink" parent="." instance=ExtResource("13_wjwwf")]
+position = Vector2(948, 538)
+
+[node name="Toilet" parent="." instance=ExtResource("14_sbqay")]
+position = Vector2(1044, 539)
 
 [connection signal="body_entered" from="InsideDoor" to="InsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="InsideDoor" to="InsideDoor" method="_on_body_exited"]

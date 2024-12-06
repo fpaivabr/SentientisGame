@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6j088qttfaqn"]
+
+[ext_resource type="Texture2D" uid="uid://dgy3ioheanm26" path="res://assets/sprites/items/toilet.png" id="1_jmsq5"]
+[ext_resource type="Script" path="res://scripts/items/toilet.gd" id="1_tmwcp"]
+[ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="2_piffn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d7de"]
+size = Vector2(91, 188)
+
+[node name="Toilet" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_tmwcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jmsq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -1)
+shape = SubResource("RectangleShape2D_8d7de")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_piffn")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

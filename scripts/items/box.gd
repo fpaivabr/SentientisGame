@@ -1,30 +1,32 @@
 extends Area2D
 
-@onready var dialog_box = $"../../DialogBox"  # Caminho relativo para o DialogBox na cena
+@onready var dialog_box = $DialogBox  # Faz referência ao DialogBox local
 
-# Função chamada quando o player entra na área de interação
+var player_in_area = false
+
+func _ready():
+	if dialog_box:
+		dialog_box.visible = false  # DialogBox começa invisível
+	else:
+		print("Erro: DialogBox não encontrado no nó Box")  # Debug para problemas
+
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Player está interagindo com a caixa.")
+		player_in_area = true
+
+func _on_body_exited(body):
+	if body.name == "Player":
+		player_in_area = false
+		if dialog_box:
+			dialog_box.visible = false  # Esconde o DialogBox quando o player sai
+
+func _process(delta):
+	if player_in_area and Input.is_action_just_pressed("ui_select"):
 		show_dialog()
 
-# Exibe o diálogo
 func show_dialog():
-	var message = "Uma caixa velha está aqui. O que deseja fazer?"
-	var options = ["Abrir", "Mover", "Cancelar"]  # Opções do diálogo
-	dialog_box.show_message(message, options, _on_option_selected)
-
-# Função chamada quando uma opção do diálogo é selecionada
-func _on_option_selected(selected_option: String):
-	if selected_option == "Abrir":
-		print("O player abriu a caixa.")
-		# Adicione lógica para abrir a caixa
-	elif selected_option == "Mover":
-		print("O player tentou mover a caixa.")
-		# Adicione lógica para mover a caixa
-	elif selected_option == "Cancelar":
-		print("O player cancelou a interação com a caixa.")
-
-
-func _on_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if dialog_box:
+		dialog_box.visible = true
+		dialog_box.get_node("Label").text = "A caixa contém alguns itens antigos e empoeirados."
+	else:
+		print("Erro: DialogBox não inicializado no Box")  # Debug

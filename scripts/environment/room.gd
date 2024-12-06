@@ -22,3 +22,35 @@ func instance_robot():
 	robot_scene.global_position = GameState.robot_position
 	add_child(robot_scene)
 	print("Robô instanciado no room na posição:", GameState.robot_position)
+
+
+func _on_toilet_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_toilet_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_box_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_box_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_sink_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_sink_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_sofa_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_sofa_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

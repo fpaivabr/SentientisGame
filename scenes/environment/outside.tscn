@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbs0xvd1anf6h"]
+[gd_scene load_steps=14 format=3 uid="uid://dbs0xvd1anf6h"]
 
 [ext_resource type="Script" path="res://scripts/environment/outside.gd" id="1_ngel5"]
 [ext_resource type="Texture2D" uid="uid://d11jca1y8emw3" path="res://assets/sprites/environment/mokazar-bg-cyberpunk-2.jpg" id="2_uufri"]
@@ -9,12 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://dyaa4dmrhqn1l" path="res://assets/sprites/environment/STEP_2A.PNG" id="5_gg0jx"]
 [ext_resource type="Texture2D" uid="uid://3nrdesootbuy" path="res://assets/sprites/environment/PANEL_1A.PNG" id="6_juxqs"]
 [ext_resource type="Texture2D" uid="uid://bdqi3pqev4dh4" path="res://assets/sprites/environment/FENCE_1A.PNG" id="9_ake4a"]
+[ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="10_t06an"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg0i"]
 size = Vector2(1152.5, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5fa7"]
 size = Vector2(17.5, 657.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn5ve"]
+size = Vector2(35, 34)
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_ngel5")
@@ -64,6 +68,14 @@ texture = ExtResource("6_juxqs")
 expand_mode = 1
 stretch_mode = 1
 
+[node name="Background6" type="TextureRect" parent="."]
+offset_left = 266.0
+offset_top = 371.0
+offset_right = 1244.0
+offset_bottom = 556.0
+texture = ExtResource("9_ake4a")
+stretch_mode = 1
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(68, 96)
 
@@ -85,6 +97,13 @@ position = Vector2(66, 486)
 scale = Vector2(2, 2)
 next_scene = "res://scenes/environment/lab.tscn"
 
+[node name="InvisibleWall2" type="StaticBody2D" parent="."]
+position = Vector2(1223, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
+position = Vector2(-62, 6)
+shape = SubResource("RectangleShape2D_o5fa7")
+
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 position = Vector2(-19, 308)
 
@@ -92,17 +111,13 @@ position = Vector2(-19, 308)
 position = Vector2(12, 11)
 shape = SubResource("RectangleShape2D_o5fa7")
 
-[node name="Background6" type="TextureRect" parent="."]
-offset_left = 266.0
-offset_top = 371.0
-offset_right = 1244.0
-offset_bottom = 556.0
-texture = ExtResource("9_ake4a")
-stretch_mode = 1
+[node name="Test" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1237, 325)
-shape = SubResource("RectangleShape2D_o5fa7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test"]
+position = Vector2(1130, 535)
+shape = SubResource("RectangleShape2D_tn5ve")
+
+[node name="DialogBox" parent="." instance=ExtResource("10_t06an")]
 
 [connection signal="body_entered" from="OutsideDoor" to="OutsideDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="OutsideDoor" to="OutsideDoor" method="_on_body_exited"]

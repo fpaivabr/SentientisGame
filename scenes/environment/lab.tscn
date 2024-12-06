@@ -98,7 +98,7 @@ texture = ExtResource("11_pdbqu")
 shape = SubResource("RectangleShape2D_kieop")
 
 [node name="Robot" parent="." instance=ExtResource("8_ef8gw")]
-position = Vector2(113, 456)
+position = Vector2(109, 465)
 
 [node name="Dog" parent="." instance=ExtResource("9_vkq50")]
 position = Vector2(765, 522)

@@ -1,26 +1,32 @@
 extends Area2D
 
-@onready var dialog_box = $"../../DialogBox"  # Caminho relativo para o DialogBox na cena
+@onready var dialog_box = $DialogBox  # Faz referência ao DialogBox local
 
-# Função chamada quando o player entra na área de interação
+var player_in_area = false
+
+func _ready():
+	if dialog_box:
+		dialog_box.visible = false  # DialogBox começa invisível
+	else:
+		print("Erro: DialogBox não encontrado no nó Sofa")  # Debug para problemas
+
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Player está interagindo com o sofá.")
+		player_in_area = true
+
+func _on_body_exited(body):
+	if body.name == "Player":
+		player_in_area = false
+		if dialog_box:
+			dialog_box.visible = false  # Esconde o DialogBox quando o player sai
+
+func _process(delta):
+	if player_in_area and Input.is_action_just_pressed("ui_select"):
 		show_dialog()
 
-# Exibe o diálogo
 func show_dialog():
-	var message = "Um sofá confortável, mas meio empoeirado. O que deseja fazer?"
-	var options = ["Sentar", "Examinar", "Cancelar"]  # Opções do diálogo
-	dialog_box.show_message(message, options, _on_option_selected)
-
-# Função chamada quando uma opção do diálogo é selecionada
-func _on_option_selected(selected_option: String):
-	if selected_option == "Sentar":
-		print("O player sentou no sofá.")
-		# Adicione lógica para a ação de sentar
-	elif selected_option == "Examinar":
-		print("O player examinou o sofá.")
-		# Adicione lógica para examinar o sofá
-	elif selected_option == "Cancelar":
-		print("O player cancelou a interação com o sofá.")
+	if dialog_box:
+		dialog_box.visible = true
+		dialog_box.get_node("Label").text = "O sofá parece confortável, mas está cheio de pó."
+	else:
+		print("Erro: DialogBox não inicializado no Sofa")  # Debug

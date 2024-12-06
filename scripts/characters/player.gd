@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0  # Velocidade de movimento do player
-const JUMP_VELOCITY = -400.0  # Velocidade para o pulo
+const JUMP_VELOCITY = -200.0  # Velocidade para o pulo
 
 var interactable_object: Node = null  # Objeto que o player pode interagir
 

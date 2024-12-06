@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh58umx0hb7gk"]
+
+[ext_resource type="Texture2D" uid="uid://b2gxrn2xw46f1" path="res://assets/sprites/items/sink.png" id="1_22flj"]
+[ext_resource type="Script" path="res://scripts/items/sink.gd" id="1_ff43a"]
+[ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="2_b4y66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bheo7"]
+size = Vector2(125, 159)
+
+[node name="Sink" type="Area2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ff43a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_22flj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -4.5)
+shape = SubResource("RectangleShape2D_bheo7")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_b4y66")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

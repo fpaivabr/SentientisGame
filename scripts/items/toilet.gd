@@ -1,26 +1,36 @@
 extends Area2D
 
-@onready var dialog_box = $"../../DialogBox"  # Caminho relativo para o DialogBox na cena
+@onready var dialog_box = $DialogBox  # Faz referência ao DialogBox local
 
-# Função chamada quando o player entra na área de interação
+var player_in_area = false
+
+func _ready():
+	
+	if dialog_box:
+		dialog_box.visible = false  # DialogBox começa invisível
+	else:
+		print("Erro: DialogBox não encontrado no nó Toilet")  # Debug para problemas
+		
+		
+		
+
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Player está interagindo com o vaso sanitário.")
+		player_in_area = true
+
+func _on_body_exited(body):
+	if body.name == "Player":
+		player_in_area = false
+		if dialog_box:
+			dialog_box.visible = false  # Esconde o DialogBox quando o player sai
+
+func _process(delta):
+	if player_in_area and Input.is_action_just_pressed("ui_select"):
 		show_dialog()
 
-# Exibe o diálogo
 func show_dialog():
-	var message = "O vaso sanitário parece limpo, mas a descarga está meio estranha. O que deseja fazer?"
-	var options = ["Usar", "Examinar", "Cancelar"]  # Opções do diálogo
-	dialog_box.show_message(message, options, _on_option_selected)
-
-# Função chamada quando uma opção do diálogo é selecionada
-func _on_option_selected(selected_option: String):
-	if selected_option == "Usar":
-		print("O player usou o vaso sanitário.")
-		# Adicione lógica para a ação de usar
-	elif selected_option == "Examinar":
-		print("O player examinou o vaso sanitário e percebeu algo estranho.")
-		# Adicione lógica para examinar o objeto
-	elif selected_option == "Cancelar":
-		print("O player cancelou a interação com o vaso sanitário.")
+	if dialog_box:
+		dialog_box.visible = true
+		dialog_box.get_node("Label").text = "O vaso sanitário parece limpo, mas está seco."
+	else:
+		print("Erro: DialogBox não inicializado no Toilet")  # Debug
