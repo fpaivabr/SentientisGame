@@ -4,7 +4,7 @@ extends Area2D
 @onready var sound_player = $RobotAudioPlayer  # Referência ao AudioStreamPlayer do robô
 
 var player_in_area = false
-var phase_two_active = false
+var phase_two_active = false  # Controle para ativar a segunda fase do diálogo
 
 func _ready():
 	if dialog_box:
@@ -33,15 +33,35 @@ func show_dialog():
 	if phase_two_active:
 		dialog_box.show_dialog(
 			"Alerta!! Problemas na bateria.",
-			["Ativar com risco", "Ajustar energia", "Buscar nova fonte"]
+			["Tentar ligar ignorando os riscos.", "Ajustar a energia.", "Buscar uma nova fonte."]
 		)
 	else:
-		dialog_box.show_dialog("Que incrível criação!")
-	play_sound()
+		dialog_box.show_dialog(
+			"Que incrível criação!",
+			[]
+		)
 
-func play_sound():
+	# Conecta o evento de escolha das opções
+	for button in dialog_box.options_container.get_children():
+		button.connect("pressed", Callable(self, "_on_option_selected").bind(button.text))
+
+func _on_option_selected(option: String):
+	if phase_two_active:
+		match option:
+			"Tentar ligar ignorando os riscos.":
+				dialog_box.show_dialog("Você tentou ligar o robô, mesmo com os riscos!", [])
+			"Ajustar a energia.":
+				dialog_box.show_dialog("Energia ajustada com sucesso.", [])
+			"Buscar uma nova fonte.":
+				dialog_box.show_dialog("Você decide buscar uma nova fonte de energia.", [])
+		play_robot_sound()
+
+func play_robot_sound():
 	if sound_player:
 		sound_player.stream = load("res://assets/audio/robot.wav")
 		sound_player.play()
 	else:
 		print("Erro: RobotAudioPlayer não configurado.")
+
+func activate_phase_two():
+	phase_two_active = true

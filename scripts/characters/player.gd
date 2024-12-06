@@ -21,7 +21,7 @@ func _physics_process(delta: float):
 	# Aplica gravidade e verifica o pulo
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Lógica de movimento horizontal
