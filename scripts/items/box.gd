@@ -27,6 +27,6 @@ func _process(delta):
 func show_dialog():
 	if dialog_box:
 		dialog_box.visible = true
-		dialog_box.get_node("Label").text = "Tantas coisas acumuladas,\ndifícil qualquer coisa nessa caixa."
+		dialog_box.get_node("Label").text = "Tantas coisas acumuladas,\ndifícil achar qualquer coisa nessa caixa."
 	else:
 		print("Erro: DialogBox não inicializado no Box")  # Debug

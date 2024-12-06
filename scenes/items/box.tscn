@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b52luvbsqr3h1"]
+[gd_scene load_steps=6 format=3 uid="uid://b52luvbsqr3h1"]
 
 [ext_resource type="Texture2D" uid="uid://c08ye1brd5uem" path="res://assets/sprites/environment/CRATE_1G.PNG" id="1_anonl"]
 [ext_resource type="Script" path="res://scripts/items/box.gd" id="1_j3k3c"]
 [ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="3_el2fp"]
+[ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="4_qx0fm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikwwy"]
 size = Vector2(66.9231, 61.5385)
@@ -21,6 +22,9 @@ scale = Vector2(1.3, 1.3)
 shape = SubResource("RectangleShape2D_ikwwy")
 
 [node name="DialogBox" parent="." instance=ExtResource("3_el2fp")]
+
+[node name="BoxAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qx0fm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

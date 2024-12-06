@@ -37,5 +37,7 @@ shape = SubResource("RectangleShape2D_4vcv6")
 
 [node name="DialogBox" parent="." instance=ExtResource("5_08kf3")]
 
+[node name="PCAudioPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

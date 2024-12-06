@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqfud2sdnmri"]
+[gd_scene load_steps=5 format=3 uid="uid://bfqfud2sdnmri"]
 
 [ext_resource type="Script" path="res://scripts/items/door.gd" id="1_ybbav"]
 [ext_resource type="Texture2D" uid="uid://bu85lty5kwkal" path="res://assets/sprites/environment/DOOR_5B.PNG" id="2_ipkdj"]
+[ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="3_04dor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc83c"]
 size = Vector2(55, 79)
@@ -16,3 +17,6 @@ shape = SubResource("RectangleShape2D_dc83c")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
 texture = ExtResource("2_ipkdj")
+
+[node name="InsideDoorAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_04dor")

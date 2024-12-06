@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://diah06vishhct"]
+[gd_scene load_steps=6 format=3 uid="uid://diah06vishhct"]
 
 [ext_resource type="Script" path="res://scripts/items/sofa.gd" id="1_jajl0"]
 [ext_resource type="Texture2D" uid="uid://buguiwkypybs0" path="res://assets/sprites/items/sofa.png" id="2_qj2ux"]
 [ext_resource type="PackedScene" uid="uid://b6uk22qt6jnq1" path="res://scenes/ui/dialog_box.tscn" id="3_5l7he"]
+[ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="4_6p3cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txqsk"]
 size = Vector2(185, 94)
@@ -18,6 +19,9 @@ position = Vector2(5.5, -13)
 shape = SubResource("RectangleShape2D_txqsk")
 
 [node name="DialogBox" parent="." instance=ExtResource("3_5l7he")]
+
+[node name="SofaAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6p3cb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
