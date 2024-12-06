@@ -130,11 +130,11 @@ texture = ExtResource("13_o6xae")
 position = Vector2(783, 534)
 shape = SubResource("RectangleShape2D_u22r6")
 
-[node name="Machine" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Machine"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(392, 436)
 texture = ExtResource("14_7y0x0")
+
+[node name="Machine" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 position = Vector2(400, 449.5)

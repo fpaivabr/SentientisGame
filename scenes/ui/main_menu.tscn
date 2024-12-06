@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk1tufp17v6k4"]
+[gd_scene load_steps=4 format=3 uid="uid://bk1tufp17v6k4"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_4ftyi"]
 [ext_resource type="Texture2D" uid="uid://b5jl4c5ls6xf5" path="res://assets/sprites/ui/sentientis.png" id="1_xu5yd"]
+[ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="3_37p1n"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_4ftyi")
@@ -26,6 +27,9 @@ offset_right = 626.0
 offset_bottom = 570.0
 text = "Manual
 "
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_37p1n")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_instructions_button_pressed"]

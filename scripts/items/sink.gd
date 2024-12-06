@@ -36,7 +36,7 @@ func show_dialog():
 	# Mostra o DialogBox com a mensagem apropriada
 	if dialog_box:
 		dialog_box.visible = true
-		dialog_box.get_node("Label").text = "A pia está pingando água lentamente."
+		dialog_box.get_node("Label").text = "Tirei o chuveiro pra consertar.\nOnde foi que eu botei?"
 		print("DialogBox exibido na Sink")  # Debug
 	else:
 		print("Erro: DialogBox não inicializado no Sink")  # Debug

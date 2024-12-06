@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ygytadojj5i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n17pj"]
+
+[node name="InvisibleTouch" type="Area2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n17pj")

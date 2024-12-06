@@ -27,6 +27,6 @@ func _process(delta):
 func show_dialog():
 	if dialog_box:
 		dialog_box.visible = true
-		dialog_box.get_node("Label").text = "O sofá parece confortável, mas está cheio de pó."
+		dialog_box.get_node("Label").text = "Hum soninho... mas agora não!!\nBora trabalhar!!"
 	else:
 		print("Erro: DialogBox não inicializado no Sofa")  # Debug

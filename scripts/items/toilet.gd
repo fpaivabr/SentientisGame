@@ -31,6 +31,6 @@ func _process(delta):
 func show_dialog():
 	if dialog_box:
 		dialog_box.visible = true
-		dialog_box.get_node("Label").text = "O vaso sanitário parece limpo, mas está seco."
+		dialog_box.get_node("Label").text = "Aaahhhhh!!"
 	else:
 		print("Erro: DialogBox não inicializado no Toilet")  # Debug

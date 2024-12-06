@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://df5kx1u0rehdf"]
+[gd_scene load_steps=4 format=3 uid="uid://df5kx1u0rehdf"]
 
 [ext_resource type="Script" path="res://scripts/ui/how_to_play.gd" id="1_64rwm"]
 [ext_resource type="Texture2D" uid="uid://divtenctbo7hq" path="res://assets/sprites/ui/manual.png" id="2_b47ee"]
+[ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="3_6nnrn"]
 
 [node name="HowToPlay" type="Node2D"]
 script = ExtResource("1_64rwm")
@@ -18,5 +19,8 @@ offset_right = 609.0
 offset_bottom = 574.0
 text = "Voltar
 "
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6nnrn")
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
