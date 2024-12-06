@@ -3,6 +3,7 @@ extends Area2D
 @onready var dialog_box = $DialogBox
 
 var player_in_area = false
+var circuit_updated = false  # Controle para verificar se o circuito foi atualizado
 
 func _ready():
 	if dialog_box:
@@ -24,7 +25,16 @@ func _process(delta):
 		show_dialog()
 
 func show_dialog():
-	dialog_box.show_dialog(
-		"Esse circuito elétrico anda dando problema...",
-		[]
-	)
+	if circuit_updated:
+		dialog_box.show_dialog(
+			"Você tentou ajustar a energia, mas acabou tomando um choque bem forte.",
+			[]
+		)
+	else:
+		dialog_box.show_dialog(
+			"Esse circuito elétrico anda dando problema...",
+			[]
+		)
+
+func update_circuit_dialog():
+	circuit_updated = true

@@ -41,20 +41,50 @@ func show_dialog():
 			[]
 		)
 
-	# Conecta o evento de escolha das opções
 	for button in dialog_box.options_container.get_children():
 		button.connect("pressed", Callable(self, "_on_option_selected").bind(button.text))
 
 func _on_option_selected(option: String):
 	if phase_two_active:
 		match option:
-			"Tentar ligar ignorando os riscos.":
-				dialog_box.show_dialog("Você tentou ligar o robô, mesmo com os riscos!", [])
-			"Ajustar a energia.":
-				dialog_box.show_dialog("Energia ajustada com sucesso.", [])
-			"Buscar uma nova fonte.":
-				dialog_box.show_dialog("Você decide buscar uma nova fonte de energia.", [])
+			"Tentar ligar ignorando os riscos.":  # Opção 1
+				handle_first_option()
+			"Ajustar a energia.":  # Opção 2
+				handle_second_option()
+			"Buscar uma nova fonte.":  # Opção 3
+				handle_third_option()
 		play_robot_sound()
+
+# Primeira opção: Exibe um diálogo simples
+func handle_first_option():
+	dialog_box.show_dialog(
+		"O robô acabou sendo ligado no momento errado.\nRecuperou uma bateria e saiu correndo\ndeixando Simon e Gunter assustados.",
+		[]
+	)
+
+# Segunda opção: Atualiza o circuito
+func handle_second_option():
+	dialog_box.show_dialog(
+		"Você decidiu ajustar a energia.",
+		[]
+	)
+	var circuit = get_node("../ElectricalCircuit")  # Ajuste o caminho para o circuito elétrico
+	if circuit:
+		circuit.call("update_circuit_dialog")
+	else:
+		print("Erro: Nó ElectricalCircuit não encontrado!")
+
+# Terceira opção: Atualiza o box
+func handle_third_option():
+	dialog_box.show_dialog(
+		"Onde foi que eu coloquei?",
+		[]
+	)
+	var box = get_node("../Box")  # Ajuste o caminho para a caixa
+	if box:
+		box.call("update_box_dialog")
+	else:
+		print("Erro: Nó Box não encontrado!")
 
 func play_robot_sound():
 	if sound_player:
