@@ -1,22 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://df5kx1u0rehdf"]
+[gd_scene load_steps=5 format=3 uid="uid://df5kx1u0rehdf"]
 
 [ext_resource type="Script" path="res://scripts/ui/how_to_play.gd" id="1_64rwm"]
 [ext_resource type="Texture2D" uid="uid://divtenctbo7hq" path="res://assets/sprites/ui/manual.png" id="2_b47ee"]
+[ext_resource type="Texture2D" uid="uid://c7ttha3wh8k5m" path="res://assets/sprites/ui/background.png" id="2_j820x"]
 [ext_resource type="AudioStream" uid="uid://pk4cgomn7pi1" path="res://assets/audio/oppening.wav" id="3_6nnrn"]
 
 [node name="HowToPlay" type="Node2D"]
 script = ExtResource("1_64rwm")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_j820x")
+stretch_mode = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.5, 325.25)
-scale = Vector2(2.13941, 1.57264)
+position = Vector2(576, 288)
+scale = Vector2(1.22215, 0.804309)
 texture = ExtResource("2_b47ee")
 
 [node name="ReturnButton" type="Button" parent="."]
-offset_left = 554.0
-offset_top = 543.0
-offset_right = 609.0
-offset_bottom = 574.0
+offset_left = 552.0
+offset_top = 560.0
+offset_right = 607.0
+offset_bottom = 591.0
 text = "Voltar
 "
 
